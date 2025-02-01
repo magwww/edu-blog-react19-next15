@@ -1,4 +1,5 @@
-import PostsSection from "@/sections/PostsSection";
+import CategoriesSection from "@/sections/categories-section";
+import PostsSection from "@/sections/posts-section";
 import { type Post } from "@/types";
 
 export default async function Home() {
@@ -6,7 +7,8 @@ export default async function Home() {
   const posts: Post[] = await data.json();
 
   return (
-    <main className="flex flex-col p-4 lg:p-10 w-full">
+    <main className="flex flex-col p-4 lg:p-16 w-full">
+      <CategoriesSection />
       <PostsSection />
     </main>
   );
