@@ -13,7 +13,7 @@ type PostCardProps = {
 const PostCard: FC<PostCardProps> = ({ post }) => {
   const { category, title, id, date, body } = post;
   return (
-    <article className="bg-gray-100 shadow-sm px-8 py-12 rounded-3xl rounded-tr-none rounded-bl-none max-w-xs">
+    <article className="bg-gray-100 px-8 py-12 rounded-[60px] rounded-tr-none rounded-bl-none max-w-xs">
       <header>
         <span
           className={`font-bold ${category.color} text-sm underline italic`}

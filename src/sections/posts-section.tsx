@@ -1,4 +1,4 @@
-import PostCard from "@/components/PostCard";
+import PostCard from "@/components/post-card";
 
 // TODO: get real data
 
@@ -23,7 +23,7 @@ const posts = [
 
 const PostsSection = () => {
   return (
-    <section>
+    <section className="py-10">
       <h2 className="mb-8 font-bold text-[#363B5C] text-2xl">Wpisy</h2>
       <div className="flex lg:flex-row flex-col gap-10 w-full">
         {posts.map((post) => (
