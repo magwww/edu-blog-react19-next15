@@ -1,42 +1,17 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { usePosts } from "@/context/posts-context";
 import { Star } from "react-feather";
 
 const FavoriteButton = ({ postId }: { postId: string }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    setIsFavorite(favorites.includes(postId));
-  }, []);
-
-  const toggleFavorite = () => {
-    setIsFavorite((prev) => !prev);
-  };
-
-  // Debounce saving to local storage
-  useEffect(() => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-
-    timeoutRef.current = setTimeout(() => {
-      const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-
-      if (isFavorite && !favorites.includes(postId)) {
-        favorites.push(postId);
-      } else if (!isFavorite) {
-        const newFavorites = favorites.filter((id: string) => id !== postId);
-        localStorage.setItem("favorites", JSON.stringify(newFavorites));
-        return;
-      }
-
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    }, 300);
-  }, [isFavorite]);
+  const { favorites, toggleFavorite } = usePosts();
+  const isFavorite = favorites.includes(Number(postId));
 
   return (
-    <button onClick={toggleFavorite} className="flex items-center gap-2">
+    <button
+      onClick={() => toggleFavorite(Number(postId))}
+      className="flex items-center gap-2"
+    >
       <span className="font-bold text-sm">
         {isFavorite ? "usuń z ulubionych" : "dodaj do ulubionych"}
       </span>

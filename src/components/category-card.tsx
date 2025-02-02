@@ -1,8 +1,10 @@
-import { FC } from "react";
+"use client";
 
+import { FC } from "react";
 import Image from "next/image";
 import { type Category } from "@/types";
 import { cn } from "@/lib/utils";
+import { usePosts } from "@/context/posts-context";
 
 const CategoryCard: FC<Category> = ({
   image,
@@ -11,9 +13,15 @@ const CategoryCard: FC<Category> = ({
   textColor,
   icon,
 }) => {
+  const { toggleCategory } = usePosts();
+
   return (
     <button
-      className={`rounded-[60px] rounded-tr-none rounded-bl-none w-[340px] h-[433px] lg:w-[366px] lg:h-[457px] text-${textColor}`}
+      onClick={() => toggleCategory(title)}
+      className={cn(
+        "rounded-[60px] rounded-tr-none rounded-bl-none w-[340px] h-[433px] lg:w-[366px] lg:h-[457px]",
+        textColor
+      )}
     >
       <div className="relative h-1/2">
         <Image
