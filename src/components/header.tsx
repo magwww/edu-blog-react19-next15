@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex flex-col gap-16 p-4 lg:p-16 pb-0 lg:pb-0">
+    <header className="flex flex-col gap-16 p-4 lg:p-24 pb-0 lg:pb-0">
       <Link href="/">
         <Image
           src="/logo.png"

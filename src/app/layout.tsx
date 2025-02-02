@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${openSans.variable} antialiased`}>
         <Header />
-        <main>{children}</main>
+        <main className="max-w-[1920px]">{children}</main>
       </body>
     </html>
   );

@@ -12,7 +12,7 @@ const PostCard: FC<EnhancedPost> = ({
   body,
 }) => {
   return (
-    <article className="bg-gray-100 px-8 py-12 rounded-[60px] rounded-tr-none rounded-bl-none max-w-xs shrink-0">
+    <article className="grid bg-gray-100 px-8 py-12 rounded-[60px] rounded-tr-none rounded-bl-none max-w-xs shrink-0">
       <header>
         <span className={`font-bold ${categoryColor} text-sm underline italic`}>
           {categoryName}
@@ -24,8 +24,8 @@ const PostCard: FC<EnhancedPost> = ({
           {date}
         </p>
       </header>
-      <p className="text-gray-700 text-sm">{body}</p>
-      <footer className="mt-8">
+      <p className="text-gray-700 text-sm">{body.substring(0, 50)}...</p>
+      <footer className="mt-8 self-end">
         <Link
           href={`/posts/${id.toString()}`}
           className="group flex items-center gap-1 font-semibold text-sm hover:underline"
