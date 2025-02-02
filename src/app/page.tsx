@@ -7,9 +7,12 @@ export default async function Home() {
   const posts: Post[] = await data.json();
 
   return (
-    <main className="flex flex-col p-4 lg:p-16 w-full">
+    <div className="flex flex-col p-4 lg:p-16 w-full">
+      <h1 className="mb-16 font-bold text-[#363B5C] text-2xl">
+        Blog Edukacyjny
+      </h1>
       <CategoriesSection />
       <PostsSection />
-    </main>
+    </div>
   );
 }
