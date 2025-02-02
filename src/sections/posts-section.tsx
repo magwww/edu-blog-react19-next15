@@ -24,12 +24,14 @@ const PostsSection = ({ enhancedPosts }: { enhancedPosts: EnhancedPost[] }) => {
 
   return (
     <section className="py-10">
-      <div className="flex justify-between items-center mb-8">
-        <div className="flex items-center gap-6">
-          <h2 className="font-bold text-[#363B5C] text-2xl">Wpisy</h2>
-          {selectedCategories && (
-            <div>
-              <ul className="flex items-center gap-3">
+      <div className="flex lg:flex-row flex-col justify-between items-center mb-8">
+        <div className="flex lg:flex-row flex-col items-center">
+          <h2 className="mb-1 lg:mb-1 font-bold text-[#363B5C] text-2xl">
+            Wpisy
+          </h2>
+          {!!selectedCategories.length && (
+            <div className="my-4 lg:mb-0">
+              <ul className="flex lg:flex-row flex-col items-center gap-3">
                 {selectedCategories.map((category) => (
                   <li
                     key={category}
@@ -45,7 +47,7 @@ const PostsSection = ({ enhancedPosts }: { enhancedPosts: EnhancedPost[] }) => {
             </div>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mt-1 lg:mt-1">
           <button
             className={
               showOnlyFavorites ? "text-[#8E2F3F] font-bold underline" : ""
