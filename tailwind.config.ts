@@ -10,6 +10,15 @@ export default {
   theme: {
     extend: {},
   },
-  safelist: ["bg-[#444E8D]", "bg-[#FFBF42]", "bg-[#D94F4F]", "bg-[#82E49A]"],
+  safelist: [
+    "bg-[#444E8D]",
+    "bg-[#FFBF42]",
+    "bg-[#D94F4F]",
+    "bg-[#82E49A]",
+    "text-[#444E8D]",
+    "text-[#FFBF42]",
+    "text-[#D94F4F]",
+    "text-[#82E49A]",
+  ],
   plugins: [],
 } satisfies Config;

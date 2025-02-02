@@ -4,7 +4,7 @@ import categories from "@/data/categories";
 
 const CategoriesSection = () => {
   return (
-    <section className="bg-[#F4F4F4] -mx-4 lg:-mx-16 px-4 lg:px-16 py-8 lg:pt-12 lg:pb-20">
+    <section className="bg-[#F4F4F4] -mx-4 lg:-mx-24 px-4 lg:px-24 py-8 lg:pt-12 lg:pb-20">
       <h2 className="mb-10 lg:mb-8 font-bold text-[#363B5C] text-2xl">
         Kategorie
       </h2>
