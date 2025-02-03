@@ -34,7 +34,7 @@ export default async function Post({
   const { title, body } = post;
 
   return (
-    <div className="flex flex-col lg:px-24 lg:py-16 p-4 w-[85%]">
+    <div className="flex flex-col lg:px-24 lg:py-16 p-4 lg:w-[70%]">
       <div className="flex lg:flex-row flex-col justify-between gap-8 lg:gap-0 w-full">
         <Link href="/" className="group flex items-center gap-2">
           <ArrowLeft className="transition group-hover:-translate-x-2 duration-300 delay-50 ease-in-out size-6" />

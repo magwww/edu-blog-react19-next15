@@ -4,19 +4,23 @@ import { type PostDetails } from "@/types";
 
 const PostDetails: FC<PostDetails> = ({ title, body }) => {
   return (
-    <div className="flex flex-col gap-8 py-8 lg:py-12">
-      <h1 className="font-[Cormorant-Garamond] font-bold text-[#363B5C] text-2xl">
-        {title}
-      </h1>
+    <article className="flex flex-col gap-8 py-8 lg:py-12">
+      <header>
+        <h1 className="font-[Cormorant-Garamond] font-bold text-[#363B5C] text-2xl">
+          {title}
+        </h1>
+      </header>
       <p className="text-gray-700 text-sm">{body}</p>
-      <Image
-        src="/post-details-image.jpg"
-        alt=""
-        width={1000}
-        height={500}
-        priority
-      />
-    </div>
+      <div className="relative rounded-2xl w-full overflow-hidden aspect-[2/1]">
+        <Image
+          src="/post-details-image.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    </article>
   );
 };
 
