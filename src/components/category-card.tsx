@@ -19,28 +19,27 @@ const CategoryCard: FC<Category> = ({
     <button
       onClick={() => toggleCategory(title)}
       className={cn(
-        "rounded-[60px] rounded-tr-none rounded-bl-none w-[340px] h-[433px] lg:w-[366px] lg:h-[457px]",
+        "w-full max-w-[340px] lg:max-w-[366px] aspect-[0.8] rounded-[60px] rounded-tr-none rounded-bl-none overflow-hidden",
         textColor
       )}
     >
-      <div className="relative h-1/2">
-        <Image
-          src={image}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-t-2xl"
-          priority
-        />
+      <div className="relative w-full h-1/2">
+        <Image src={image} alt={title} fill className="object-cover" priority />
       </div>
       <div
         className={cn(
-          "flex flex-col gap-4 justify-center items-center rounded-b-2xl h-1/2 text-white",
+          "flex flex-col gap-4 justify-center items-center h-1/2 text-white",
           bgColor
         )}
       >
-        <span className="font-semibold text-xl">{title}</span>
-        <Image src={icon} alt={`${title} icon`} width={50} height={50} />
+        <span className="font-semibold lg:text-xl">{title}</span>
+        <Image
+          src={icon}
+          alt={`${title} icon`}
+          width={50}
+          height={50}
+          className="w-auto h-auto"
+        />
       </div>
     </button>
   );

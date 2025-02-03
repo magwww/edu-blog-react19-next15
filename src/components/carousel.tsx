@@ -32,8 +32,8 @@ export default function Carousel({ children, loop = true }: CarouselProps) {
             key={index}
             onClick={() => emblaApi?.scrollTo(index)}
             className={cn(
-              "w-3 h-3 rounded-full transition border border-black",
-              selectedIndex === index ? "bg-black" : ""
+              "size-3 rounded-full transition border border-black",
+              selectedIndex === index && "bg-black"
             )}
           />
         ))}
