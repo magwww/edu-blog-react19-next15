@@ -51,15 +51,17 @@ export default function Carousel({ children, loop = true }: CarouselProps) {
 
       <button
         onClick={scrollPrev}
+        aria-label="Poprzednia kategoria"
         className="top-1/2 -left-4 absolute p-2 -translate-y-1/2"
       >
-        <ChevronLeft />
+        <ChevronLeft className="size-6" aria-hidden="true" />
       </button>
       <button
         onClick={scrollNext}
+        aria-label="Następna kategoria"
         className="top-1/2 -right-4 absolute p-2 -translate-y-1/2"
       >
-        <ChevronRight />
+        <ChevronRight className="size-6" aria-hidden="true" />
       </button>
     </div>
   );

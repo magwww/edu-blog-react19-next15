@@ -11,7 +11,7 @@ const PostDetails: FC<PostDetails> = ({ title, body }) => {
       <p className="text-gray-700 text-sm">{body}</p>
       <Image
         src="/post-details-image.jpg"
-        alt={title}
+        alt=""
         width={1000}
         height={500}
         priority

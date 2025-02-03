@@ -11,6 +11,8 @@ const FavoriteButton = ({ postId }: { postId: string }) => {
     <button
       onClick={() => toggleFavorite(Number(postId))}
       className="flex items-center gap-2"
+      aria-label={isFavorite ? "usuń z ulubionych" : "dodaj do ulubionych"}
+      aria-pressed={isFavorite}
     >
       <span className="font-bold text-sm">
         {isFavorite ? "usuń z ulubionych" : "dodaj do ulubionych"}

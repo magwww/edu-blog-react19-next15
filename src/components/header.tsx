@@ -7,7 +7,7 @@ const Header = () => {
       <Link href="/">
         <Image
           src="/logo.png"
-          alt="ACME Institute Logo"
+          alt="Logo ACME Institute"
           priority
           width={322}
           height={58}
