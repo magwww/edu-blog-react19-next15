@@ -3,10 +3,12 @@ import { ArrowLeft } from "react-feather";
 import { type Post } from "@/types";
 import FavoriteButton from "@/components/favorite-button";
 import PostDetails from "@/components/post-details";
+import { notFound } from "next/navigation";
+import { POSTS_LIMIT } from "@/app/page";
 
 export async function generateStaticParams() {
   const posts: Post[] = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=16"
+    `https://jsonplaceholder.typicode.com/posts?_limit=${POSTS_LIMIT}`
   ).then((res) => res.json());
 
   return posts.map((post) => ({
@@ -21,8 +23,13 @@ export default async function Post({
 }) {
   const { id } = await params;
 
-  const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  const post: Post = await data.json();
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const post: Post = await res.json();
+
+  //16 is a number of posts we are rendering
+  if (Number(id) > POSTS_LIMIT) {
+    notFound();
+  }
 
   const { title, body } = post;
 

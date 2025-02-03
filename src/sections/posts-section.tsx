@@ -25,12 +25,12 @@ const PostsSection = ({ enhancedPosts }: { enhancedPosts: EnhancedPost[] }) => {
   return (
     <section className="py-10">
       <div className="flex lg:flex-row flex-col justify-between items-center mb-8">
-        <div className="flex lg:flex-row flex-col items-center">
-          <h2 className="mb-1 lg:mb-1 font-bold text-[#363B5C] text-2xl">
+        <div className="flex lg:flex-row flex-col items-center lg:gap-4">
+          <h2 className="mb-1 lg:mb-0 font-bold text-[#363B5C] text-2xl">
             Wpisy
           </h2>
           {!!selectedCategories.length && (
-            <div className="my-4 lg:mb-0">
+            <div className="my-4 lg:my-0">
               <ul className="flex lg:flex-row flex-col items-center gap-3">
                 {selectedCategories.map((category) => (
                   <li
@@ -68,9 +68,13 @@ const PostsSection = ({ enhancedPosts }: { enhancedPosts: EnhancedPost[] }) => {
         </div>
       </div>
       <div className="flex lg:flex-row flex-col flex-wrap gap-10 w-full">
-        {filteredPosts.map((post) => (
-          <PostCard key={post.id} {...{ ...post }} />
-        ))}
+        {filteredPosts.length ? (
+          filteredPosts.map((post) => (
+            <PostCard key={post.id} {...{ ...post }} />
+          ))
+        ) : (
+          <p>Nie znaleziono postów dla podanych filtrów</p>
+        )}
       </div>
     </section>
   );

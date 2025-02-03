@@ -3,6 +3,8 @@ import CategoriesSection from "@/sections/categories-section";
 import PostsSection from "@/sections/posts-section";
 import { type EnhancedPost, type Post } from "@/types";
 
+export const POSTS_LIMIT = 16;
+
 function enhancePosts(posts: Post[]): EnhancedPost[] {
   return posts.map((post, index) => {
     const category =
@@ -16,11 +18,10 @@ function enhancePosts(posts: Post[]): EnhancedPost[] {
 }
 
 export default async function Home() {
-  //TODO: errors handling
-  const data = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=16"
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts?_limit=${POSTS_LIMIT}`
   );
-  const posts: Post[] = await data.json();
+  const posts: Post[] = await res.json();
 
   const enhancedPosts = enhancePosts(posts);
 
