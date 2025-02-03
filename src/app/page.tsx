@@ -3,7 +3,7 @@ import CategoriesSection from "@/sections/categories-section";
 import PostsSection from "@/sections/posts-section";
 import { type EnhancedPost, type Post } from "@/types";
 
-export function enhancePosts(posts: Post[]): EnhancedPost[] {
+function enhancePosts(posts: Post[]): EnhancedPost[] {
   return posts.map((post, index) => {
     const category =
       postCategoriesAndDate[index % postCategoriesAndDate.length];

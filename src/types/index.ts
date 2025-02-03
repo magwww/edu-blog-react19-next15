@@ -24,3 +24,5 @@ export type PostCategoryAndDate = {
 };
 
 export type EnhancedPost = Post & PostCategoryAndDate;
+
+export type PostDetails = Pick<Post, "title" | "body">;
