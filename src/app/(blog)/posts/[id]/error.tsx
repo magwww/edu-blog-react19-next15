@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { startTransition, useEffect } from "react";
+// import * as Sentry from "@sentry/nextjs";
 
 export default function ErrorBoundary({
   error,
@@ -20,6 +21,7 @@ export default function ErrorBoundary({
 
   useEffect(() => {
     // Log the error to an error reporting service
+    // Sentry.captureException(error);
     console.error("Error in post/id:", error);
   }, [error]);
 
