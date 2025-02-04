@@ -2,6 +2,7 @@ import postCategoriesAndDate from "@/data/post-categories-and-date";
 import CategoriesSection from "@/sections/categories-section";
 import PostsSection from "@/sections/posts-section";
 import { type EnhancedPost, type Post } from "@/types";
+import { getPosts } from "@/services/getPosts";
 
 export const POSTS_LIMIT = 16;
 
@@ -18,11 +19,7 @@ function enhancePosts(posts: Post[]): EnhancedPost[] {
 }
 
 export default async function Home() {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=${POSTS_LIMIT}`
-  );
-  const posts: Post[] = await res.json();
-
+  const posts: Post[] = await getPosts();
   const enhancedPosts = enhancePosts(posts);
 
   return (

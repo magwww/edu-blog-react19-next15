@@ -5,11 +5,11 @@ import FavoriteButton from "@/components/favorite-button";
 import PostDetails from "@/components/post-details";
 import { notFound } from "next/navigation";
 import { POSTS_LIMIT } from "@/app/page";
+import { getPost } from "@/services/getPost";
+import { getPosts } from "@/services/getPosts";
 
 export async function generateStaticParams() {
-  const posts: Post[] = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=${POSTS_LIMIT}`
-  ).then((res) => res.json());
+  const posts: Post[] = await getPosts();
 
   return posts.map((post) => ({
     id: post.id.toString(),
@@ -23,8 +23,7 @@ export default async function Post({
 }) {
   const { id } = await params;
 
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  const post: Post = await res.json();
+  const post: Post = await getPost(Number(id));
 
   //16 is a number of posts we are rendering
   if (Number(id) > POSTS_LIMIT) {
