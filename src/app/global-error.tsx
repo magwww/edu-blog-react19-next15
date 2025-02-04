@@ -19,8 +19,13 @@ export default function GlobalError({
   return (
     <html>
       <body>
-        <h2>Coś poszło nie tak...</h2>
-        <button onClick={() => reset()}>Spróbuj ponownie</button>
+        <h1>Coś poszło nie tak...</h1>
+        <button
+          className="px-6 py-2 border hover:border-black rounded-xl"
+          onClick={() => reset()}
+        >
+          Spróbuj ponownie
+        </button>
       </body>
     </html>
   );
