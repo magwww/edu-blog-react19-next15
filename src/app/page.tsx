@@ -24,7 +24,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col p-4 lg:p-24 w-full">
-      <h1 className="mb-8 font-bold text-[#363B5C] text-2xl">
+      <h1 className="mb-8 font-bold text-[#363B5C] text-3xl lg:text-4xl">
         Blog Edukacyjny
       </h1>
       <CategoriesSection />

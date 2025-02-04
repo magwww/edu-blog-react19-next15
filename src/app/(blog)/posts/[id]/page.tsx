@@ -37,7 +37,7 @@ export default async function Post({
       <div className="flex lg:flex-row flex-col justify-between gap-8 lg:gap-0 w-full">
         <Link href="/" className="group flex items-center gap-2">
           <ArrowLeft className="transition group-hover:-translate-x-2 duration-300 delay-50 ease-in-out size-6" />
-          <span className="font-bold text-[#363B5C] text-2xl">
+          <span className="font-bold text-[#363B5C] text-3xl lg:text-4xl">
             Blog edukacyjny
           </span>
         </Link>
