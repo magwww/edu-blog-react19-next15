@@ -70,7 +70,7 @@ Dane pobierane są z jsonplaceholder.typicode.com:
 
 - Dodanie user analytics - dla dokładnych informacji o zdarzeniach biznesowych w komponencie
 - Odkomentowanie sentry i logowanie błędów
-- Dodanie testów jednostkowych i integracyjnych
+- Rozbudowa testów o testy jednostkowe i integracyjne
 - Rozbudowa klienta api pozwalająca na używanie różnych sposobów komunikacji (http, graphql, websockets)
 - Wyświetlanie większej liczby postów, dodanie paginacji
 - Możliwość dodawania własnych postów
