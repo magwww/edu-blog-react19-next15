@@ -2,7 +2,7 @@ import postCategoriesAndDate from "@/data/post-categories-and-date";
 import CategoriesSection from "@/sections/categories-section";
 import PostsSection from "@/sections/posts-section";
 import { type EnhancedPost, type Post } from "@/types";
-import { getPosts } from "@/services/getPosts";
+import { getPosts } from "@/services/get-posts";
 
 export const POSTS_LIMIT = 16;
 

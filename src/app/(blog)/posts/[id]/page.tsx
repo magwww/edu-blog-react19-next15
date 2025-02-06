@@ -5,8 +5,8 @@ import FavoriteButton from "@/components/favorite-button";
 import PostDetails from "@/components/post-details";
 import { notFound } from "next/navigation";
 import { POSTS_LIMIT } from "@/app/page";
-import { getPost } from "@/services/getPost";
-import { getPosts } from "@/services/getPosts";
+import { getPost } from "@/services/get-post";
+import { getPosts } from "@/services/get-posts";
 
 export async function generateStaticParams() {
   const posts: Post[] = await getPosts();
