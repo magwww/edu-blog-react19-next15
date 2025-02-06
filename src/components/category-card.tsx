@@ -31,6 +31,7 @@ const CategoryCard: FC<Category> = ({
           src={image}
           alt={`Obrazek kategorii ${title}`}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 25vw"
           className="object-cover"
           priority
         />

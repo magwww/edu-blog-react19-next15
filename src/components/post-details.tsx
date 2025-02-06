@@ -16,6 +16,7 @@ const PostDetails: FC<PostDetails> = ({ title, body }) => {
           src="/post-details-image.jpg"
           alt=""
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
           className="object-cover"
           priority
         />
