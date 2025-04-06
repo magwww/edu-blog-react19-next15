@@ -1,13 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import PostsSection from "../src/sections/posts-section";
 
-jest.mock("../src/context/posts-context", () => ({
-  usePosts: () => ({
-    favorites: [],
-    showOnlyFavorites: false,
-    setShowOnlyFavorites: jest.fn(),
+jest.mock("../src/store/categoriesStore", () => ({
+  categoriesStore: () => ({
     selectedCategories: [],
     toggleCategory: jest.fn(),
+  }),
+}));
+
+jest.mock("../src/store/favoritesStore", () => ({
+  favoritesStore: () => ({
+    favorites: [],
   }),
 }));
 

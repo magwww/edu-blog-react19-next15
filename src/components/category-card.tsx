@@ -4,7 +4,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { type Category } from "@/types";
 import { cn } from "@/lib/utils";
-import { usePosts } from "@/context/posts-context";
+import { categoriesStore } from "@/store/categoriesStore";
+import { useShallow } from "zustand/shallow";
 
 const CategoryCard: FC<Category> = ({
   image,
@@ -13,7 +14,13 @@ const CategoryCard: FC<Category> = ({
   textColor,
   icon,
 }) => {
-  const { toggleCategory, selectedCategories } = usePosts();
+  const { selectedCategories, toggleCategory } = categoriesStore(
+    useShallow((state) => ({
+      selectedCategories: state.selectedCategories,
+      toggleCategory: state.toggleCategory,
+    }))
+  );
+
   const isActive = selectedCategories.includes(title);
 
   return (

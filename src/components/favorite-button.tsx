@@ -1,10 +1,17 @@
 "use client";
 
-import { usePosts } from "@/context/posts-context";
+import { favoritesStore } from "@/store/favoritesStore";
 import { Star } from "react-feather";
+import { useShallow } from "zustand/shallow";
 
 const FavoriteButton = ({ postId }: { postId: string }) => {
-  const { favorites, toggleFavorite } = usePosts();
+  const { favorites, toggleFavorite } = favoritesStore(
+    useShallow((state) => ({
+      favorites: state.favorites,
+      toggleFavorite: state.toggleFavorite,
+    }))
+  );
+
   const isFavorite = favorites.includes(Number(postId));
 
   return (

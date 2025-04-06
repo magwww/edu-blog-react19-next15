@@ -1,18 +1,28 @@
 "use client";
 
 import PostCard from "@/components/post-card";
-import { usePosts } from "@/context/posts-context";
+import { favoritesStore } from "@/store/favoritesStore";
+import { categoriesStore } from "@/store/categoriesStore";
 import { type EnhancedPost } from "@/types";
 import { X } from "react-feather";
+import { useShallow } from "zustand/react/shallow";
+import { useState } from "react";
 
 const PostsSection = ({ enhancedPosts }: { enhancedPosts: EnhancedPost[] }) => {
-  const {
-    favorites,
-    showOnlyFavorites,
-    setShowOnlyFavorites,
-    selectedCategories,
-    toggleCategory,
-  } = usePosts();
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState<boolean>(false);
+
+  const { favorites } = favoritesStore(
+    useShallow((state) => ({
+      favorites: state.favorites,
+    }))
+  );
+
+  const { selectedCategories, toggleCategory } = categoriesStore(
+    useShallow((state) => ({
+      selectedCategories: state.selectedCategories,
+      toggleCategory: state.toggleCategory,
+    }))
+  );
 
   const filteredPosts = enhancedPosts
     .filter((post) =>

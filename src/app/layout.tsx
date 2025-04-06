@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
-import { PostsProvider } from "@/context/posts-context";
 import { PropsWithChildren } from "react";
 
 const openSans = Open_Sans({
@@ -24,10 +23,8 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="pl">
       <body className={`${openSans.variable} antialiased`}>
-        <PostsProvider>
-          <Header />
-          <main className="max-w-[1920px]">{children}</main>
-        </PostsProvider>
+        <Header />
+        <main className="max-w-[1920px]">{children}</main>
       </body>
     </html>
   );
